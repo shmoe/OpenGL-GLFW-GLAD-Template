@@ -11,16 +11,15 @@
 #include <iostream>
 
 /**
+ * Contains callbacks for GLFW events.
+ */
+#include "events.h"
+
+/**
  * The initial width and height of the GLFW window
  */
 const int GLFW_WINDOW_WIDTH = 800;
 const int GLFW_WINDOW_HEIGHT = 600;
-
-/**
- * Forward-declare the callback function that reacts to a
- *	framebuffer resize event.
- */
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 /**
  * main(int argc, char* argv[]) - Initializes the necessary libraries for ppening an OpenGL context and houses the
@@ -80,7 +79,7 @@ int main(int argc, char* argv[]) {
 	/**
 	 * Set callback functions.
 	 */
-	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+	glfwSetFramebufferSizeCallback(window, events::framebuffer_size_callback);
 
 	/**
 	 * Main rendering loop
@@ -98,11 +97,4 @@ int main(int argc, char* argv[]) {
 	 */
 	glfwTerminate();	// Safely terminate GLFW
 	return 0;			// End execution with a good value
-}
-
-/**
- * Callback to handle framebuffer resize events.
- */
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-	glViewport(0, 0, width, height);	//set viewport to the full width and height of the new framebuffer
 }
