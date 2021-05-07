@@ -41,11 +41,6 @@ int main(int argc, char* argv[]) {
 	}
 
 	/**
-	 * Bind new window to the OpenGL 3.3 context
-	 */
-	glfwMakeContextCurrent(window);
-
-	/**
 	 * Initialize GLAD, which manages function pointers for OpenGL and allows
 	 * us to ignore ignore implementation specific details and just use the
 	 * OpenGL API to utilize the OpenGL conext. If initilization fails, log to
@@ -112,6 +107,11 @@ GLFWwindow* create_glfw_window() {
 		glfwTerminate();												// Safely terminate GLFW
 		return nullptr;														// End execution with a bad value
 	}
+
+	/**
+	 * Bind new window to the OpenGL 3.3 context (essential to initialize GLAD!)
+	 */
+	glfwMakeContextCurrent(window);
 
 	return window;
 }
