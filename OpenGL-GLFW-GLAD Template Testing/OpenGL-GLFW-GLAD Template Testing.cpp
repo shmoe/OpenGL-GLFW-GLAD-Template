@@ -26,6 +26,16 @@ namespace OpenGLGLFWGLADTemplateTesting
 
 			glfwTerminate();
 		}
-	}
+
+		TEST_METHOD(InitGlad)
+		{
+			GLFWwindow* window = create_glfw_window();
+			Assert::IsNotNull(window, L"See test: CreateGLFWWindow");
+
+			Assert::AreEqual(0, init_glad(), L"GLAD failed to initialize");
+
+			glfwTerminate();
+		}
+	};
 }
 
