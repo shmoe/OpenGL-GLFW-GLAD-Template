@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 	* Initialize GLFW and create the main render window. Safely end execution
 	* on failure.
 	*/
-	if (!(window = create_glfw_window())) {
+	if ((window = create_glfw_window()) == nullptr) {
 		return -1;			// Safely end execution with a bad value
 	}
 
