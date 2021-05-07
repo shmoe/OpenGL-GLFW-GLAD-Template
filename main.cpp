@@ -12,7 +12,7 @@
 
 /**
  * Forward declares all functions in "main.cpp" for unit testing
- * purposes
+ * purposes.
  */
 #include "main.h"
 
@@ -30,24 +30,14 @@
  *		argv - an ordered list of the arguements used to launch this program, starting with the binary name
  */
 int main(int argc, char* argv[]) {
-	glfwInit();	// Initialize the GLFW library
+	GLFWwindow* window;	// Main render window
 
 	/**
-	 * Tell GLFW to open a window with OpenGL 3.3 in the Core Profile mode
-	 */
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, LOCAL_GL_VERSION[0]);					// Tell GLFW the major value of the OpenGL context we wish the new window to have
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, LOCAL_GL_VERSION[1]);					// Tell GLFW the minor value of the OpenGL context we wish the new window to hav
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);	// Tell GLFW to open the new window in Core Profile mode
-
-	/**
-	 * Tell GLFW to create a window with the above configuration. If window
-	 * creation fails, log to stderr and terminate.
-	 */ 
-	GLFWwindow* window = glfwCreateWindow(GLFW_WINDOW_WIDTH, GLFW_WINDOW_HEIGHT, "Hellow Window", NULL, NULL);	// Create GLFW window
-	if (window == NULL) {
-		std::cerr << "Failed to create GLFW window" << std::endl;	// Log failure to stderr
-		glfwTerminate();											// Safely terminate GLFW
-		return -1;													// End execution with a bad value
+	* Initialize GLFW and create the main render window. Safely end execution
+	* on failure.
+	*/
+	if (!(window = create_glfw_window())) {
+		return -1;			// Safely end execution with a bad value
 	}
 
 	/**
@@ -61,10 +51,9 @@ int main(int argc, char* argv[]) {
 	 * OpenGL API to utilize the OpenGL conext. If initilization fails, log to
 	 * stderr and terminate.
 	 */
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {	// Bind function glfwGetProcAddress as the GLAD LoadGL Loader
-		std::cerr << "Failed to initialize GLAD" << std::endl;	// Log failure to stderr
-		glfwTerminate();										// Safely terminate GLFW
-		return -1;												// End execution with a bad value
+	if (!init_glad()) {
+		glfwTerminate();	// Safely terminate GLFW
+		return -1;			// Safely end execution with a bad value
 	}
 
 	/**
@@ -97,4 +86,41 @@ int main(int argc, char* argv[]) {
 	 */
 	glfwTerminate();	// Safely terminate GLFW
 	return 0;			// End execution with a good value
+}
+
+GLFWwindow* create_glfw_window() {
+	glfwInit();	// Initialize the GLFW library
+
+	/**
+	 * Tell GLFW to open a window with OpenGL 3.3 in the Core Profile mode
+	 */
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, LOCAL_GL_VERSION[0]);	// Tell GLFW the major value of the OpenGL context we wish the new window to have
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, LOCAL_GL_VERSION[1]);	// Tell GLFW the minor value of the OpenGL context we wish the new window to hav
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);		// Tell GLFW to open the new window in Core Profile mode
+
+	/**
+	 * Tell GLFW to create a window with the above configuration. If window
+	 * creation fails, log to stderr and terminate.
+	 */
+	GLFWwindow* window = glfwCreateWindow(GLFW_WINDOW_WIDTH, GLFW_WINDOW_HEIGHT, "Hellow Window", NULL, NULL);	// Create GLFW window
+	if (window == NULL) {
+		std::cerr << "Failed to create GLFW window" << std::endl;		// Log failure to stderr
+		glfwTerminate();												// Safely terminate GLFW
+		return nullptr;														// End execution with a bad value
+	}
+
+	return window;
+}
+
+/**
+ * Initialize GLAD, which manages function pointers for OpenGL and allows
+ * us to ignore ignore implementation specific details and just use the
+ * OpenGL API to utilize the OpenGL conext. If initilization fails, log to
+ * stderr and return -1.
+ */
+int init_glad() {
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {	// Bind function glfwGetProcAddress as the GLAD LoadGL Loader
+		std::cerr << "Failed to initialize GLAD" << std::endl;	// Log failure to stderr
+		return -1;												// Return with a bad value
+	}
 }
