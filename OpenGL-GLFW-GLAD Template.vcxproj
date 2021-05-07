@@ -153,6 +153,10 @@
     <ClInclude Include="events.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <None Include="OpenGL-GLFW-GLAD-glm-Win32.props" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
