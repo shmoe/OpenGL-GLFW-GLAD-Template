@@ -1,3 +1,10 @@
+/**
+ * Griffin Nelson
+ * 5/7/2021
+ * 
+ * "OpenGL-GLFW-GLAD Template Testing.cpp" - Contains the CppUnitTestFramework test class
+ *		OpenGLGLFWGLADTemplateTesting and all of its test methods.
+ */
 #include "pch.h"
 #include "CppUnitTest.h"
 
