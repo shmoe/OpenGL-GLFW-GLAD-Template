@@ -11,10 +11,11 @@
 #include <iostream>
 
 /**
- * The initial width and height of the GLFW window
+ * Configuration constants
  */
-const int GLFW_WINDOW_WIDTH = 800;
-const int GLFW_WINDOW_HEIGHT = 600;
+const int LOCAL_GL_VERSION[2] = { 3, 3 };	// OpenGL version to use
+const int GLFW_WINDOW_WIDTH = 800;			// Initial width of GLFW render window
+const int GLFW_WINDOW_HEIGHT = 600;			// Initial height of GLFW render window
 
 /**
  * Forward-declare the callback function that reacts to a
@@ -36,8 +37,8 @@ int main(int argc, char* argv[]) {
 	/**
 	 * Tell GLFW to open a window with OpenGL 3.3 in the Core Profile mode
 	 */
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);					// Tell GLFW the major value of the OpenGL context we wish the new window to have
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);					// Tell GLFW the minor value of the OpenGL context we wish the new window to hav
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, LOCAL_GL_VERSION[0]);					// Tell GLFW the major value of the OpenGL context we wish the new window to have
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, LOCAL_GL_VERSION[1]);					// Tell GLFW the minor value of the OpenGL context we wish the new window to hav
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);	// Tell GLFW to open the new window in Core Profile mode
 
 	/**
