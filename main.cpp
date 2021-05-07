@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
 	 * OpenGL API to utilize the OpenGL conext. If initilization fails, log to
 	 * stderr and terminate.
 	 */
-	if (!init_glad()) {
+	if (init_glad()) {
 		glfwTerminate();	// Safely terminate GLFW
 		return -1;			// Safely end execution with a bad value
 	}
