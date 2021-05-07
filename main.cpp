@@ -127,4 +127,6 @@ int init_glad() {
 		std::cerr << "Failed to initialize GLAD" << std::endl;	// Log failure to stderr
 		return -1;												// Return with a bad value
 	}
+
+	return 0;	// Return with a good value
 }
