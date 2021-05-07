@@ -11,16 +11,15 @@
 #include <iostream>
 
 /**
+ * Forward declares all functions in "main.cpp" for unit testing
+ * purposes
+ */
+#include "main.h"
+
+/**
  * Contains callbacks for GLFW events.
  */
 #include "events.h"
-
-/**
- * Configuration constants
- */
-const int LOCAL_GL_VERSION[2] = { 3, 3 };	// OpenGL version to use
-const int GLFW_WINDOW_WIDTH = 800;			// Initial width of GLFW render window
-const int GLFW_WINDOW_HEIGHT = 600;			// Initial height of GLFW render window
 
 /**
  * main(int argc, char* argv[]) - Initializes the necessary libraries for ppening an OpenGL context and houses the
