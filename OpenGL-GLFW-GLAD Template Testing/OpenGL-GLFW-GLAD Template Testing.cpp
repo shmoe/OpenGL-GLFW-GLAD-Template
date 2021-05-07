@@ -36,6 +36,34 @@ namespace OpenGLGLFWGLADTemplateTesting
 
 			glfwTerminate();
 		}
+
+		TEST_METHOD(EventsFrameBufferSizeCallback)
+		{
+			int framebuffer_width = 0,
+				framebuffer_height = 0;
+
+			int viewport[4] = {
+				0,	// viewport x coord
+				0,	// viewport y coord
+				0,	// viewport width
+				0	// viewport height
+			};
+
+
+			GLFWwindow* window = create_glfw_window();
+			Assert::IsNotNull(window, L"See test: CreateGLFWWindow");
+
+			Assert::AreEqual(0, init_glad(), L"See test: InitGlad");
+
+			glfwGetFramebufferSize(window, &framebuffer_width, &framebuffer_height);
+			events::framebuffer_size_callback(window, framebuffer_width / 2, framebuffer_height / 2);
+			glGetIntegerv(GL_VIEWPORT, viewport);
+
+			Assert::AreEqual(framebuffer_width / 2, viewport[2], L"Framebuffer width does not match viewport width");
+			Assert::AreEqual(framebuffer_height / 2, viewport[3], L"Framebuffer height does not match viewport height");
+
+			glfwTerminate();
+		}
 	};
 }
 
