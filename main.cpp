@@ -88,6 +88,10 @@ int main(int argc, char* argv[]) {
 	return 0;			// End execution with a good value
 }
 
+/**
+ * Initialize GLFW and create render window with the newly created GL context.
+ * Return nullptr on failure.
+ */
 GLFWwindow* create_glfw_window() {
 	glfwInit();	// Initialize the GLFW library
 
