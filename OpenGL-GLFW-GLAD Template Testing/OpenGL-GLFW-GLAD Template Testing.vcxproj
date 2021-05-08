@@ -98,14 +98,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\griff\source\repos\OpenGL-GLFW-GLAD Template;$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\griff\source\repos\OpenGL-GLFW-GLAD Template\OpenGL-GLFW-GLAD Template;$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\griff\source\repos\OpenGL-GLFW-GLAD Template\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\griff\source\repos\OpenGL-GLFW-GLAD Template\OpenGL-GLFW-GLAD Template\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glad.obj;main.obj;events.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -175,7 +175,11 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenGL-GLFW-GLAD Template.vcxproj">
+    <None Include="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <None Include="..\OpenGL-GLFW-GLAD-glm-Win32.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL-GLFW-GLAD Template\OpenGL-GLFW-GLAD Template.vcxproj">
       <Project>{ea3318e0-bff4-4726-b233-1d133f383dac}</Project>
     </ProjectReference>
   </ItemGroup>
