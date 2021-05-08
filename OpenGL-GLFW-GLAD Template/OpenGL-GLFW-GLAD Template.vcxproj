@@ -59,21 +59,21 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Win32.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Win32.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Win32.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Win32.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Headers.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <Import Project="OpenGL-GLFW-GLAD-glm-Headers.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -154,8 +154,8 @@
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
-    <None Include="..\OpenGL-GLFW-GLAD-glm-Win32.props" />
+    <None Include="OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <None Include="OpenGL-GLFW-GLAD-glm-Win32.props" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

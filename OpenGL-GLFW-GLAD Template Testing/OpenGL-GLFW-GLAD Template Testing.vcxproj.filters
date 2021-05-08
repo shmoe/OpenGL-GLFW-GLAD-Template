@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\OpenGL-GLFW-GLAD-glm-Headers.props" />
-    <None Include="..\OpenGL-GLFW-GLAD-glm-Win32.props" />
+    <None Include="..\OpenGL-GLFW-GLAD Template\OpenGL-GLFW-GLAD-glm-Headers.props" />
+    <None Include="..\OpenGL-GLFW-GLAD Template\OpenGL-GLFW-GLAD-glm-Win32.props" />
   </ItemGroup>
 </Project>
